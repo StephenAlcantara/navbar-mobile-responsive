@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500&display=swap');
+
+:root {
+    --blue-accent100: hsl(228, 39%, 23%);
+    --blue-accent200: hsl(233, 12%, 13%);
+    --blue-accent300: hsl(227, 12%, 61%);
+}
+
+*,*::before,*::after {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--blue-accent300);
+    font-family: 'Be Vietnam Pro';
+    height: 400vh;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0 0 10px var(--blue-accent200);
+    padding: 1rem;
+    border-radius: 100vmax;
+    margin: 1rem;
+    position: sticky;
+    top: 1%;
+}
+
+img {
+    margin-right: auto;
+    cursor: pointer;
+}
+
+input {
+    display: none;
+}
+
+input:checked ~ nav {
+    transform: scale(1,1);
+}
+
+input:checked ~ nav a {
+    opacity: 1;
+}
+
+nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: .5rem;
+    box-shadow: 0 5px 5px var(--blue-accent200);
+    margin-top: 1rem;
+    padding: 1rem;
+    transform: scale(1,0);
+    transition: transform 200ms ease-in;
+    transform-origin: top;
+}
+
+.nav-list {
+    text-align: center;
+}
+
+.nav-item {
+    margin: 1rem 0 1rem 0;
+}
+
+.nav-item a {
+    color: var(--blue-accent100);
+    position: relative;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out 200ms;
+}
+
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-bottom: 3px solid var(--blue-accent200);
+    transform: scale(0,1);
+    transition: transform 200ms ease-in;
+}
+
+.nav-item a:hover::after {
+    transform: scale(1,1);
+}
+
+@media screen and (min-width: 50em) {
+    label {
+        display: none;
+    }
+
+    nav {
+        all: unset;
+    }
+
+    .nav-list {
+        display: flex;
+        gap: 2rem;
+        margin-right: 1rem;
+    }
+
+    .nav-item a {
+        opacity: 1;
+    }
+}
